@@ -6,7 +6,7 @@ class Edad:
 
     def calcular_media(self):
         return sum(self.edades) / len(self.edades)
-    def mostar_media(self):
+    def mostrar_media(self):
         media = self.calcular_media()
         return f"La media de las edades es: {media:.2f}"
     
@@ -21,9 +21,12 @@ def main():
             edades.append(edad)
         except ValueError:
             print("Por favor, ingrese un número válido.")
-        
-    edad_obj = Edad(edades)
-    print(edad_obj.mostar_media())
+    if not edades:
+        print("No se ingresaron edades.")
+        return
+    else:
+        edad_obj = Edad(edades)
+        print(edad_obj.mostrar_media())
 
 if __name__ == "__main__":
     main()
